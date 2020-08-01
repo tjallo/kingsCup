@@ -48,8 +48,7 @@ export default {
 
 <script>
 import { cards } from "../js/cards.js";
-
-let localCards = cards;
+import {sample} from "lodash";
 
 export default {
   name: "App",
@@ -59,9 +58,7 @@ export default {
   data: () => ({}),
   computed: {
     newCard: () => {
-      const index = Math.floor(Math.random() * localCards.length);
-      const randomElement = localCards[index];
-      return randomElement;
+      return sample(cards)
     },
   },
   methods: {

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Homepage from '../views/Homepage';
-import Game from '../views/Game'
+import Game from '../views/Game';
 
 Vue.use(VueRouter);
 
