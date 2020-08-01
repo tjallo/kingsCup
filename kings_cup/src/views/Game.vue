@@ -67,6 +67,8 @@ export default {
       this.card = localcard;
       this.$store.commit("remove", { arrayEntry: localcard });
     } else {
+      this.card[0] = 'Het spel is voorbij';
+      this.card[1] = 'Druk op \'Volgende\' om het nog een keer te starten'
       console.log("Resetting")
       this.$store.commit("reset")
     }
