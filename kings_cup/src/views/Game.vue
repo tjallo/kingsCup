@@ -3,16 +3,16 @@
     <v-row class="justify-center">
       <v-col cols="12" sm="8" md="4">
         <v-card class="elevation-12 my-6 text-center" color="green" shaped>
-          <div class="top text">{{newCard[0]}}</div>
+          <div class="top text">{{card[0]}}</div>
         </v-card>
         <v-card class="elevation-12 my-n10 rounded-xl text-center" color="primary">
-          <div class="bottom ma-15">{{newCard[1]}}</div>
+          <div class="bottom ma-15">{{card[1]}}</div>
         </v-card>
         <br />
 
         <v-layout justify-center>
           <v-card-actions>
-            <v-btn primary rounded class="px-14 py-11" color="red"  @click.prevent="reloadPage()">
+            <v-btn primary rounded class="px-14 py-11" color="red" @click.prevent="reloadPage()">
               <span class="button">Volgende</span>
             </v-btn>
           </v-card-actions>
@@ -48,22 +48,35 @@ export default {
 
 <script>
 import { cards } from "../js/cards.js";
-import {sample} from "lodash";
+import { sample, isEmpty } from "lodash";
 
 export default {
   name: "App",
 
   components: {},
 
-  data: () => ({}),
-  computed: {
-    newCard: () => {
-      return sample(cards)
-    },
+  data: () => ({
+    cardArray: [],
+    card: [],
+  }),
+  computed: {},
+  created: function () {
+    if (!isEmpty(this.$store.state.cards)) {
+      this.cardArray = this.$store.state.cards;
+      let localcard = sample(this.cardArray);
+      this.card = localcard;
+      this.$store.commit("remove", { arrayEntry: localcard });
+    } else {
+      console.log("Resetting")
+      this.$store.commit("reset")
+    }
   },
   methods: {
     reloadPage() {
       window.location.reload();
+    },
+    resetAll() {
+      this.$store.commit("reset");
     },
   },
 };
