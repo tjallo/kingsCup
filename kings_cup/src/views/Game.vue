@@ -27,7 +27,10 @@ export default {
   props: {
     source: String,
   },
+};
+</script>
 
+<script>
 export default {
   props: {
     source: String,
@@ -37,7 +40,12 @@ export default {
     drawer: null,
   }),
 
-  created(
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
+};
+</script>
+
 <script>
 import { cards } from "../js/cards.js";
 import { sample, isEmpty } from "lodash";
@@ -68,7 +76,8 @@ export default {
   methods: {
     reloadPage() {
       window.location.reload();
-þ    resetAll() {
+    },
+    resetAll() {
       this.$store.commit("reset");
     },
   },
