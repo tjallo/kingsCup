@@ -47,7 +47,6 @@ export default {
 </script>
 
 <script>
-import { cards } from "../js/cards.js";
 import { sample, isEmpty } from "lodash";
 
 export default {
