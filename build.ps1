@@ -1,2 +1,3 @@
 npm run build
-Copy-Item .\dist\* ..\tjallo.github.io
+Remove-Item -Recurse ..\tjallo.github.io\*
+Copy-Item -Recurse .\dist\* ..\tjallo.github.io
