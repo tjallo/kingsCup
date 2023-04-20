@@ -1,14 +1,32 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 
-import './assets/main.css'
+// Vuetify
+import 'vuetify/styles';
+import { createVuetify, useTheme } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 
-const app = createApp(App)
+import "@mdi/font/css/materialdesignicons.css"
+import "@fortawesome/fontawesome-free/css/all.css"
 
-app.use(createPinia())
-app.use(router)
+const vuetify = createVuetify({
+  components,
+  directives,
+  theme: {
+    defaultTheme: 'dark'
+  }
+});
 
-app.mount('#app')
+import './assets/main.css';
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(router);
+app.use(vuetify);
+
+app.mount('#app');
