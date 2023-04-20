@@ -1,3 +1,10 @@
-<script lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { usePlayerStore } from '@/stores/player';
 
-<template>Game view</template>
+const store = usePlayerStore();
+</script>
+
+<template>
+    {{ store.players }}
+</template>

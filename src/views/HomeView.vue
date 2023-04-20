@@ -28,7 +28,7 @@ function removePlayer(index: number) {
     <v-list>
       <v-list-item v-for="(player, index) in store.players" :key="index">
         {{ player }}
-        <v-btn variant="flat" class="ml-n1"><v-icon icon="mdi-account-remove-outline" color="red" @click="removePlayer(index)"></v-icon></v-btn>
+        <v-btn variant="flat" class="ml-n1" @click="removePlayer(index)"><v-icon icon="mdi-account-remove-outline" color="red"></v-icon></v-btn>
       </v-list-item>
     </v-list>
 
