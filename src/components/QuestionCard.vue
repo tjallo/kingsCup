@@ -1,9 +1,11 @@
 <script setup lang="ts">
 // import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
-import QuestionCard from './components/QuestionCard.vue';
 </script>
 
 <template>
-  <QuestionCard />
+
+  Ik ben een question card
+ 
 </template>
+
